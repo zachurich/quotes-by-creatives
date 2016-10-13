@@ -2,8 +2,6 @@
 
 * This goal for this side project was to create a quote generator specifically by/for creatives
 
-* In this case, creatives include anyone who builds products whether by design or engineering
-
 ### Getting Started
 
 * Compile SASS from the styles folder using:
