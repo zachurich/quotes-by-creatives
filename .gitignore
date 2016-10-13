@@ -1,0 +1,6 @@
+### Things to ignore ###
+
+*.css.map
+*.ai
+styles/.sass-cache/
+logo-mock.png
