@@ -11,38 +11,47 @@ $(document).ready(function() {
   // Define our array of quote objects
   var quoteArr = [
     {
-      quote: "How well we communicate is determined not by how well we say things, but how well we are understood.",
-      name: "Andrew Grove",
-      link: "http://google.com/"
+      quote: "As soon as you flip the switch from consumer to producer, you position yourself as an influencer.",
+      name: "Sean McCabe",
+      link: "https://twitter.com/seanwes"
     },
     {
       quote: "Good design is obvious. Great design is transparent.",
       name: "Joe Sparano",
-      link: ""
+      link: "http://joesparano.com/"
     },
     {
       quote: "Where do new ideas come from? The answer is simple: differences. Creativity comes from unlikely juxtapositions.",
       name: "Nicholas Negroponte",
-      link: ""
+      link: "https://twitter.com/nnegroponte"
     },
     {
       quote: "Do not seek praise. Seek criticism.",
       name: "Paul Arden",
-      link: ""
+      link: "https://twitter.com/paul_arden_"
     },
     {
-      quote: "The goal of a designer is to listen, observe, understand, sympathize, empathize, synthesize, and glean insights that enable him or her to ‘make the invisible visible.",
-      name: "Hillman Curtis",
-      link: ""
+      quote: "Have fun being bad when you start learning.",
+      name: "Nick Fredman",
+      link: "https://twitter.com/nickfredman"
+    },
+    {
+      quote: "Creativity is not something that only a select few can tap into.",
+      name: "Travis Neilson",
+      link: "https://twitter.com/travisneilson"
+    },
+    {
+      quote: "Progress and completion are two different things. Celebrate the steps you took today.",
+      name: "Kyle Adams",
+      link: "https://twitter.com/ItsKyleAdams"
     }
   ];
 
   // function for getting random color
   function colorRandomizer() {
     var randomColor= Math.floor(Math.random()*colorArr.length);
-    document.getElementById('flex-container').style.backgroundColor = "#" + colorArr[randomColor];
+    document.querySelector('.flex-container').style.backgroundColor = "#" + colorArr[randomColor];
     document.querySelector('.button').style.color = "#" + colorArr[randomColor];
-    console.log(colorArr[randomColor]);
   }
 
   // function for getting random quotes
@@ -72,10 +81,12 @@ $(document).ready(function() {
         var link  = quoteArr[randomNumber].link;
 
         // Append text content to appropriate places
-        $('.quote').html("&quot; " + quote + " &quot;");
+        $('.quote').html("&quot;" + quote + "&quot;");
         $('.name').html(name);
         $('.link').attr('href', link);
       }
+
+      // Based off of current randomNumber, remove that single item from the array
       quoteArr.splice(randomNumber, 1);
     }
   }
@@ -84,11 +95,18 @@ $(document).ready(function() {
   colorRandomizer();
   quoteRandomizer();
 
-
+  // Click call-back functions
   $('.button').on('click', function() {
   colorRandomizer();
   quoteRandomizer();
-  // Based off of current randomNumber, remove that single item from the array
+  })
+
+  $('.nav-button').on('click', function() {
+    if($('#container').hasClass('body-slide')) {
+      $('#container').removeClass('body-slide').addClass('slide-back');
+    } else {
+      $('#container').addClass('body-slide').removeClass('slide-back');;
+    }
   })
 
 
