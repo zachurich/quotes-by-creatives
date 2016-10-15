@@ -1,0 +1,74 @@
+.slide {
+  animation: slide 0.2s ease-in-out forwards;
+}
+
+@keyframes slide {
+  0% {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  100% {
+    margin-right: 300px;
+    margin-left: -300px;
+  }
+}
+
+@media screen and (max-width: $mobile-small) {
+  @keyframes slide {
+    0% {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    100% {
+      margin-right: 250px;
+      margin-left: -250px;
+    }
+  }
+}
+
+.slide-back {
+  animation: slide-back 0.2s ease-in-out forwards;
+}
+
+@keyframes slide-back {
+  0% {
+    margin-right: 300px;
+    margin-left: -300px;
+  }
+  100% {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: $mobile-small) {
+  @keyframes slide-back {
+    0% {
+      margin-right: 250px;
+      margin-left: -250px;
+    }
+    100% {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }
+}
+
+.border {
+  border: 2px solid white;
+}
+
+.comeOnIn {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

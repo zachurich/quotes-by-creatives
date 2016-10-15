@@ -109,7 +109,6 @@ $(document).ready(function() {
       $('.flex-container').addClass('slide').removeClass('slide-back');
       setTimeout(function() {
         $('.menu').css('z-index', '9999');
-        console.log('Fired!');
       }, 300)
     }
   })
