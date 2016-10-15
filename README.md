@@ -1,6 +1,6 @@
 ## A simple quote generator
 
-* This goal for this side project was to create a quote generator specifically by/for creatives
+* Curated quotes by creatives, for creatives.
 
 ### Getting Started
 
