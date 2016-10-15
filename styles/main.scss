@@ -152,11 +152,12 @@ a {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 200;
+      font-weight: 600;
       letter-spacing: 1px;
       line-height: 26px;
     }
     p.name {
+      box-sizing: border-box;
       font-size: 0.8em;
       padding: 10px 15px;
       border-radius: 2px;
