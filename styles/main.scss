@@ -1,7 +1,8 @@
-// Define variables
+// Variables
 $mobile: 500px;
 $mobile-small: 350px;
 $shade: rgba(2, 56, 84, 1);
+$red: rgb(212, 76, 87);
 $shadows: 0px 20px 20px -10px rgba(0, 0, 0, 0.2);
 
 // General Styles
@@ -11,15 +12,14 @@ body {
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
-  @media screen and (max-width: $mobile) {
-
-  }
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 a {
   text-decoration: none;
 }
 
+// Main Styles
 .menu {
   z-index: -1;
   position: fixed;
@@ -67,6 +67,9 @@ a {
     }
     p {
       margin: 0;
+      a {
+        color: $red;
+      }
     }
   }
 }
@@ -134,7 +137,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    min-height: 300px;
     max-width: 800px;
     @media screen and (max-width: $mobile) {
       padding: 0 40px;
