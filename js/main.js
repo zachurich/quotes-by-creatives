@@ -114,5 +114,10 @@ $(document).ready(function() {
     }
   })
 
+  // Prevent Overflow scroll on mobile
+  document.ontouchmove = function(event){
+    event.preventDefault();
+  }
+
 
 });
