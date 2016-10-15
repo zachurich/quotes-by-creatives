@@ -4,14 +4,23 @@
 
 ### Getting Started
 
-* Compile SASS from the styles folder using:
+* Run:
 
 ```bash
-# Compiles main.scss and spits output in root directory
-$ sass --watch main.scss:../output.css --style compressed
+
+# Gets all build dependencies
+$ npm install
 
 ```
 
-### To-dos:
+* Compile Styles
 
-* Set-up gulp build to compile SASS to run through autoprefixer
+```bash
+# Compiles main.scss and spits output in root directory
+$ gulp styles
+
+# 'Watch' compiling
+
+$ gulp watch
+
+```
