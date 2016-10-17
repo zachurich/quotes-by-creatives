@@ -1,3 +1,9 @@
+// Imports
+@import 'variables';
+@import 'animations';
+@import 'menu';
+@import 'content';
+
 // General Styles
 body {
   padding: 0;
@@ -6,14 +12,14 @@ body {
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: $shade;
 }
 
 a {
   text-decoration: none;
 }
 
-// Imports
-@import 'variables';
-@import 'animations';
-@import 'menu';
-@import 'content';
+p {
+  margin: 0;
+  padding: 0;
+}

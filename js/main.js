@@ -58,8 +58,10 @@ $(document).ready(function() {
   function quoteRandomizer() {
     if(quoteArr.length === 1) {
       $('.text-container').addClass('comeOnIn');
-      $('.quote').html("There is no more knowledge <br/> to be gained at this moment.");
-      $('.name').css('display', 'none');
+      $('.quote').html("There are no more quotes <br/> at the moment. Check often for new ones!");
+      $('.name').hide();
+      $('.divider').hide();
+      $('.button').hide();
     } else {
       $('.name').addClass('border');
       $('.text-container').addClass('comeOnIn');
