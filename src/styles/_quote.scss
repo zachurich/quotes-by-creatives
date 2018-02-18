@@ -1,0 +1,50 @@
+.quote {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  padding: 25px 15px 40px 25px;
+  @media screen and (min-width: $break-m) {
+    padding: 100px 80px;
+  }
+  @media screen and (min-width: $break-m) {
+    padding: 0 50px 0 80px;
+  }
+  span {
+    opacity: 0.8;
+    position: absolute;
+  }
+  svg {
+    width: 50px;
+    @media screen and (min-width: $break-m) {
+      width: 70px;
+    }
+  }
+  .quote-open {
+    top: -30px;
+    left: -15px;
+    @media screen and (min-width: $break-m) {
+      top: -25px;
+      left: -25px;
+    }
+  }
+  .quote-closed {
+    bottom: -25px;
+    right: 0;
+    transform: rotate(180deg);
+    @media screen and (min-width: $break-m) {
+      bottom: -25px;
+      right: 0;
+    }
+  }
+  p {
+    margin-top: 0;
+    font-size: 2rem;
+    position: relative;
+    letter-spacing: 1px;
+    max-width: 48rem;
+  }
+}

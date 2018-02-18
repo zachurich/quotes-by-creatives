@@ -1,0 +1,42 @@
+.quote-source {
+  flex: 1;
+  margin-top: auto;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  text-align: center;
+  @media screen and (min-width: $break-s) {
+    padding: 50px 50px;
+    flex: 0 1 15%;
+  }
+  @media screen and (min-width: $break-m) {
+    min-height: 100vh;
+  }
+  @media screen and (min-width: $break-l) {
+    flex: 0 1 25%;
+  }
+  &--name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    p {
+      margin-top: 15px;
+    }
+  }
+  &--image {
+    height: 100px;
+    width: 100px;
+    background: $color-black;
+    border-radius: 50%;
+  }
+  &--source {
+    .button {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.14);
+        color: $color-blue;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
-### Things to ignore ###
-
-*.css.map
-*.ai
-styles/.sass-cache/
-logo-mock.png
-*.psd
+# dependencies
 node_modules
-logo-02.*
+
+# production
+build
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

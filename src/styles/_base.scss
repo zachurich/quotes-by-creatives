@@ -1,0 +1,57 @@
+//Breakpoints
+$break-l: 1024px;
+$break-m: 768px;
+$break-s: 500px;
+
+// Colors
+$color-black: #303030;
+$color-white: #f0f0f0;
+$color-blue: #3330e3;
+
+// Font
+$font-main: "Roboto", sans-serif;
+$font-size: 14px;
+
+// Style
+$style-radius: 6px;
+$style-gradient: linear-gradient(145deg, #5d5afd, transparent);
+
+// Body Defaults
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: $font-size;
+  font-family: $font-main;
+  background: $style-gradient;
+  background-color: $color-blue;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  cursor: pointer;
+  color: inherit;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: $style-radius;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media screen and (min-width: $break-m) {
+    flex-direction: row;
+  }
+}
