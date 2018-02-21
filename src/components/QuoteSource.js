@@ -8,11 +8,14 @@ export default class extends Component {
           <img src={this.props.img} />
         </div>
         <div className="quote-source--name">
-          <p>{this.props.quoteInfo.name}Lorem Ipsum</p>
+          <h3>{this.props.quoteInfo.name}Lorem Ipsum</h3>
         </div>
-        <div className="quote-source--source">
+        <div className="quote-source--actions">
           <a className="button" href={this.props.quoteInfo.source || "/"}>
             Source
+          </a>
+          <a className="button" onClick={() => this.props.getQuote()}>
+            New Quote
           </a>
         </div>
       </div>

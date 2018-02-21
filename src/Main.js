@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Quote from "./components/Quote";
 import QuoteSource from "./components/QuoteSource";
 import Footer from "./components/Footer";
+import wikiquote from "wikiquote";
 
 class Main extends Component {
   constructor() {
@@ -16,20 +17,22 @@ class Main extends Component {
     };
   }
   fetchQuote = () => {
-    this.setState({ quote: data });
+    wikiquote.search("Steve Jobs").then(page => console.log(page.title));
+    // this.setState({ quote: data });
   };
   fetchImg = () => {
-    this.setState({ image: data });
+    // this.setState({ image: data });
   };
+
   render() {
     return (
       <div className="wrapper">
-        <Quote
-          data={this.state.quote}
+        <Quote data={this.state.quote} getImg={this.fetchImg} />
+        <QuoteSource
+          img={this.state.image}
+          quoteInfo={this.state.quote}
           getQuote={this.fetchQuote}
-          getImg={this.fetchImg}
         />
-        <QuoteSource img={this.state.image} quoteInfo={this.state.quote} />
         <Footer />
       </div>
     );

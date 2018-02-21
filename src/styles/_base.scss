@@ -16,7 +16,11 @@ $font-size: 14px;
 $style-radius: 6px;
 $style-gradient: linear-gradient(145deg, #5d5afd, transparent);
 
-// Body Defaults
+// Defaults
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -24,9 +28,14 @@ body {
   box-sizing: border-box;
   font-size: $font-size;
   font-family: $font-main;
+  color: $color-black;
   background: $style-gradient;
   background-color: $color-blue;
   -webkit-font-smoothing: antialiased;
+}
+
+p {
+  margin: 0;
 }
 
 a {
@@ -42,7 +51,7 @@ a {
   background-color: rgba(0, 0, 0, 0.1);
   transition: all 0.1s ease-in-out;
   &:hover {
-    background-color: $color-white;
+    background-color: rgba(0, 0, 0, 0.14);
     color: $color-blue;
   }
 }

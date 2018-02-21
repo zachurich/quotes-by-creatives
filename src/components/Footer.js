@@ -11,7 +11,7 @@ export default class extends Component {
             <span>
               <Logo />
             </span>
-            <p>Quotes By Creatives</p>
+            <p>Quotes About Stuff</p>
           </a>
         </div>
         <div className="footer--copyright">

@@ -6,18 +6,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 50px 10px;
+  flex: 0 1 30%;
   text-align: center;
-  @media screen and (min-width: $break-s) {
-    padding: 50px 50px;
-    flex: 0 1 15%;
-  }
+  // @media screen and (min-width: $break-s) {
+  //   // padding: 50px 50px;
+  //   flex: 0 1 15%;
+  // }
   @media screen and (min-width: $break-m) {
-    min-height: 100vh;
+    min-height: calc(100vh - 58px);
   }
-  @media screen and (min-width: $break-l) {
-    flex: 0 1 25%;
-  }
+  // @media screen and (min-width: $break-l) {
+  //   flex: 0 1 25%;
+  // }
   &--name {
     font-size: 1.5rem;
     font-weight: 500;
@@ -31,12 +32,9 @@
     background: $color-black;
     border-radius: 50%;
   }
-  &--source {
+  &--actions {
     .button {
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.14);
-        color: $color-blue;
-      }
+      margin: 0 5px;
     }
   }
 }

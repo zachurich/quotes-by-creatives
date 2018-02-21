@@ -15,15 +15,6 @@ export default class extends Component {
             <Quote />
           </span>
         </p>
-
-        <div className="quote--new">
-          <a
-            className="button"
-            onClick={this.props.getQuote && this.props.getImg}
-          >
-            New Quote
-          </a>
-        </div>
       </div>
     );
   }
