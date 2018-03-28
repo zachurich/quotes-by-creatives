@@ -42,12 +42,24 @@
   }
   p {
     margin-top: 0;
-    font-size: 1.9rem;
-    position: relative;
     letter-spacing: 1px;
     max-width: 48rem;
     @media screen and (min-width: $break-m) {
       font-size: 2rem;
     }
+  }
+  &--wrapper {
+    position: relative;
+  }
+  &--normal {
+    font-size: 1.9rem;
+  }
+
+  &--smaller {
+    font-size: 1.6rem;
+  }
+
+  &--small {
+    font-size: 1.4rem;
   }
 }

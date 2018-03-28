@@ -15,6 +15,7 @@ app.use(
     publicPath: config.output.publicPath
   })
 );
+
 routes(app);
 
 app.get("*", function(req, res) {

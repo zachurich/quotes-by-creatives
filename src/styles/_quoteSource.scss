@@ -19,11 +19,15 @@
   // @media screen and (min-width: $break-l) {
   //   flex: 0 1 25%;
   // }
-  &--name {
-    font-size: 1.5rem;
-    font-weight: 500;
+  &--info {
+    h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
     p {
-      margin-top: 15px;
+      max-width: 300px;
+      margin-bottom: 15px;
     }
   }
   &--image {
@@ -34,7 +38,23 @@
   }
   &--actions {
     .button {
-      margin: 0 5px;
+      display: inline-block;
+      // margin: 0 5px;
+      &.active {
+        background: $color-blue;
+        color: white;
+      }
+    }
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.1);
+      outline: none;
+      -webkit-appearance: none;
+      border: none;
     }
   }
 }

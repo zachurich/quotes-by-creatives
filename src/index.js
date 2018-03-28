@@ -1,7 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import Main from "./Main";
+import { connect, Provider } from "react-redux";
+import { mapStateToProps, mapDispatchToProps, store } from "./stores/";
 
 import "./styles/style.scss";
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+export const Index = connect(mapStateToProps, mapDispatchToProps)(Main);
+
+render(
+  <Provider store={store}>
+    <Index />
+  </Provider>,
+  document.getElementById("root")
+);
