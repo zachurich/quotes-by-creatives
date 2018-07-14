@@ -3,16 +3,13 @@ import Quote from './components/Quote';
 import QuoteSource from './components/QuoteSource';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
-import wikiquote from 'wikiquote';
 import PropTypes from 'prop-types';
-
-import { host } from '../config';
 
 let timer;
 class Main extends Component {
   checkIfPersonExists = liveInput => {
     this.props.watchInput(liveInput);
-    let endpoint = `${host}check-quotes?search=${liveInput}`;
+    let endpoint = `/check-quotes?search=${liveInput}`;
     clearTimeout(timer);
     timer = setTimeout(() => {
       fetch(endpoint, {
@@ -28,7 +25,7 @@ class Main extends Component {
   };
   fetchQuote = () => {
     this.props.isLoading(true);
-    let endpoint = `${host}list-quotes`;
+    let endpoint = `/list-quotes`;
     const search = `?search=${this.props.liveInput}`;
     if (this.props.liveInput) {
       endpoint += search;
