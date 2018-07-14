@@ -1,4 +1,4 @@
-const wikiquote = require("wikiquote");
+const wikiquote = require('wikiquote');
 
 exports.getRandomQuote = function(req, res, next) {
   const userQuery = req.query.search || null;
@@ -9,12 +9,24 @@ exports.getRandomQuote = function(req, res, next) {
     .catch(err => res.json(err));
 };
 
-exports.getPerson = function(req, res, next) {
+// exports.getPerson = function(req, res, next) {
+//   const userQuery = req.query.search || null;
+//   wikiquote
+//     .searchPeople(userQuery)
+//     .then(person => res.json(person[0]))
+//     .catch(err => res.json(err));
+// };
+
+exports.checkForQuotes = function(req, res, next) {
   const userQuery = req.query.search || null;
   wikiquote
-    .searchPeople(userQuery)
-    .then(person => res.json(person[0]))
-    .catch(err => res.json(err));
+    .searchByTitle(userQuery)
+    .then(page => wikiquote.list(page[0].title))
+    .then(quotes => {
+      console.log(quotes);
+      return quotes && quotes.length ? res.json(true) : res.json(false);
+    })
+    .catch(err => res.json(false));
 };
 
 exports.getListQuotes = function(req, res, next) {
@@ -26,7 +38,7 @@ exports.getListQuotes = function(req, res, next) {
       res.json(
         quotes
           .filter(item => {
-            item.quote = item.quote.replace(item.source, "");
+            item.quote = item.quote.replace(item.source, '');
             return item;
           })
           .filter(item => (item.source ? item : null))

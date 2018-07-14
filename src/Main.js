@@ -1,62 +1,56 @@
-import React, { Component } from "react";
-import Quote from "./components/Quote";
-import QuoteSource from "./components/QuoteSource";
-import Footer from "./components/Footer";
-import wikiquote from "wikiquote";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import Quote from './components/Quote';
+import QuoteSource from './components/QuoteSource';
+import Loading from './components/Loading';
+import Footer from './components/Footer';
+import wikiquote from 'wikiquote';
+import PropTypes from 'prop-types';
 
-import { host } from "../config";
+import { host } from '../config';
 
+let timer;
 class Main extends Component {
-  typeAway = (str, speed) => {
-    let i = 0;
-    let typeLoop;
-    this.props.toggleComplete(false);
-    return (typeLoop = () => {
-      if (i < str.length) {
-        this.props.appendToQuote(str[i]);
-        i++;
-        setTimeout(typeLoop, speed);
-      } else {
-        this.props.toggleComplete(true);
-      }
-    })();
-  };
   checkIfPersonExists = liveInput => {
     this.props.watchInput(liveInput);
-    let endpoint = `${host}get-person?search=${liveInput}`;
-    let exist = false;
-
-    fetch(endpoint, {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json"
+    let endpoint = `${host}check-quotes?search=${liveInput}`;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fetch(endpoint, {
+        method: 'GET',
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
       })
-    })
-      .then(res => res.json())
-      .then(response => this.props.checkPerson(response))
-      .catch(err => this.props.checkPerson(err));
+        .then(res => res.json())
+        .then(response => this.props.checkPerson(response))
+        .catch(err => this.props.checkPerson(err));
+    }, 250);
   };
   fetchQuote = () => {
+    this.props.isLoading(true);
     let endpoint = `${host}list-quotes`;
     const search = `?search=${this.props.liveInput}`;
     if (this.props.liveInput) {
       endpoint += search;
     }
     fetch(endpoint, {
-      method: "GET",
+      method: 'GET',
       headers: new Headers({
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       })
     })
       .then(res => res.json())
       .catch(err => console.log(err))
-      .then(data => this.props.getQuote(data))
-      .then(() => this.typeAway(this.props.quote.quote, 0.05));
+      .then(data => {
+        this.props.isLoading(false);
+        this.props.getQuote(data);
+      });
   };
   render() {
     return (
       <div className="wrapper">
+        {this.props.loading && <Loading />}
+        {/* <Loading /> */}
         <Quote data={this.props.quote} quoteAppend={this.props.quoteAppend} />
         <QuoteSource
           input={this.props.submittedInput}
@@ -77,11 +71,13 @@ class Main extends Component {
 Main.propTypes = {
   quote: PropTypes.object,
   liveInput: PropTypes.string,
+  isLoading: PropTypes.func,
   watchInput: PropTypes.func,
   quoteAppend: PropTypes.string,
   appendToQuote: PropTypes.func,
   submittedInput: PropTypes.string,
-  quoteComplete: PropTypes.bool
+  quoteComplete: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 export default Main;

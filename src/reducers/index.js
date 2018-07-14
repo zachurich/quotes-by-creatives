@@ -1,37 +1,43 @@
-import { host } from "../../config";
+import { host } from '../../config';
 
 const initialState = {
   quote: {},
   quotes: [],
-  liveInput: "",
+  loading: false,
+  liveInput: '',
   doesExist: false,
-  quoteAppend: "",
+  quoteAppend: '',
   quoteComplete: true,
-  submittedInput: ""
+  submittedInput: ''
 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case "WATCH_INPUT":
+    case 'WATCH_INPUT':
       return Object.assign({}, state, {
         liveInput: action.liveInput
       });
-    case "CHECK_PERSON":
+    case 'CHECK_PERSON':
       return Object.assign({}, state, {
         doesExist: action.doesExist
       });
-    case "FETCH_RANDOM_QUOTE":
+    case 'INIT_LOADING':
       return Object.assign({}, state, {
-        quoteAppend: "",
+        loading: true
+      });
+
+    case 'DONE_LOADING':
+      return Object.assign({}, state, {
+        loading: false
+      });
+    case 'FETCH_RANDOM_QUOTE':
+      return Object.assign({}, state, {
+        quoteAppend: '',
         quotes: action.quotes,
         submittedInput: state.liveInput,
         quote: action.quotes[Math.floor(Math.random() * action.quotes.length)]
       });
-    case "APPEND_TO_QUOTE":
-      return Object.assign({}, state, {
-        quoteAppend: (state.quoteAppend += action.char)
-      });
-    case "QUOTE_COMPLETE":
+    case 'QUOTE_COMPLETE':
       return Object.assign({}, state, {
         quoteComplete: action.bool
       });

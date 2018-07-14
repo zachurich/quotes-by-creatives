@@ -9,7 +9,7 @@ $color-white: #f0f0f0;
 $color-blue: #3330e3;
 
 // Font
-$font-main: "Roboto", sans-serif;
+$font-main: 'Roboto', sans-serif;
 $font-size: 14px;
 
 // Style
@@ -31,6 +31,7 @@ body {
   color: $color-black;
   background: $style-gradient;
   background-color: $color-blue;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 

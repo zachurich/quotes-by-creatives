@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import QuoteMark from "svg-react-loader?name=Quote!../quote.svg";
+import QuoteMark from 'svg-react-loader?name=Quote!../quote.svg';
 
 export default class Quote extends Component {
   render() {
-    let quote = this.props.data ? this.props.data.quote : "";
-    let size = "normal";
+    let quote = this.props.data ? this.props.data.quote : '';
+    let size = 'normal';
     if (quote && quote.length >= 550) {
-      size = "small";
+      size = 'small';
     } else if (quote && quote.length >= 450) {
-      size = "smaller";
+      size = 'smaller';
     }
     return (
       <div className="quote">
@@ -19,7 +19,7 @@ export default class Quote extends Component {
             <span className="quote-open">
               <QuoteMark />
             </span>
-            <p className={`quote--${size}`}>{this.props.quoteAppend}</p>
+            <p className={`quote--${size}`}>{quote}</p>
             <span className="quote-closed">
               <QuoteMark />
             </span>

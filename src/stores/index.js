@@ -6,6 +6,7 @@ export function mapStateToProps(state) {
   const {
     quote,
     quotes,
+    loading,
     liveInput,
     doesExist,
     quoteAppend,
@@ -15,6 +16,7 @@ export function mapStateToProps(state) {
   return {
     quote,
     quotes,
+    loading,
     liveInput,
     doesExist,
     quoteAppend,

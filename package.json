@@ -31,7 +31,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server",
-    "dev-server": "nodemon server.js",
+    "dev:server": "nodemon server.js",
     "build": "NODE_ENV='production' webpack",
     "deploy": ""
   },

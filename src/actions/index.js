@@ -1,41 +1,47 @@
 export function watchInput(liveInput) {
   return {
-    type: "WATCH_INPUT",
+    type: 'WATCH_INPUT',
     liveInput
   };
+}
+
+export function isLoading(state) {
+  if (state == true) {
+    return {
+      type: 'INIT_LOADING',
+      state
+    };
+  } else {
+    return {
+      type: 'DONE_LOADING',
+      state
+    };
+  }
 }
 
 export function checkPerson(response) {
   let doesExist = false;
 
-  if (typeof response === "object" && response.title) {
-    console.log(response);
+  if (response) {
     doesExist = true;
   }
 
   return {
-    type: "CHECK_PERSON",
+    type: 'CHECK_PERSON',
     doesExist
   };
 }
 
 export function getQuote(quotes) {
   return {
-    type: "FETCH_RANDOM_QUOTE",
+    type: 'FETCH_RANDOM_QUOTE',
     quotes
-  };
-}
-
-export function appendToQuote(char) {
-  return {
-    type: "APPEND_TO_QUOTE",
-    char
   };
 }
 
 export function toggleComplete(bool) {
   return {
-    type: "QUOTE_COMPLETE",
+    type: 'QUOTE_COMPLETE',
     bool
   };
 }

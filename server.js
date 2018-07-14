@@ -6,7 +6,7 @@ const wpMiddleWare = require("webpack-dev-middleware");
 const config = require("./webpack.config.js");
 const compiler = webpack(config);
 const dir = path.join(__dirname, "/");
-const routes = require("./routes/index");
+const routes = require("./server/routes/index");
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.

@@ -1,18 +1,25 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class QuoteSource extends Component {
+  renderFormattedSource(source) {
+    if (source.length > 400) {
+      source = source.substring(0, 400);
+      source += '...';
+    }
+    return source;
+  }
   render() {
-    const source = this.props.quoteInfo ? this.props.quoteInfo.source : "";
+    const source = this.props.quoteInfo ? this.props.quoteInfo.source : '';
     return (
       <div className="quote-source">
-        {/* <div className="quote-source--image">
-          <img src={this.props.img} />
-        </div> */}
-        <div className="quote-source--info">
-          <h3>{this.props.input}</h3>
-          <p>{source}</p>
-        </div>
+        {this.props.input && (
+          <div className="quote-source--info">
+            <h3>{this.props.input}</h3>
+            <span>-Source-</span>
+            <p>{this.renderFormattedSource(source)}</p>
+          </div>
+        )}
         {this.props.quoteComplete ? (
           <div className="quote-source--actions">
             <input
@@ -23,7 +30,7 @@ export default class QuoteSource extends Component {
             />
             <a
               className={`button ${
-                this.props.personDoesExist ? "active" : null
+                this.props.personDoesExist ? 'active' : null
               }`}
               onClick={() => this.props.fetchQuote()}
             >
