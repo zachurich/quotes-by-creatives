@@ -1,5 +1,3 @@
-import { host } from '../../config';
-
 const initialState = {
   quote: {},
   quotes: [],
